@@ -8,7 +8,7 @@ import net.liftweb.util.Helpers._
 import net.liftweb.http.S._
 import net.liftweb.http.SHtml._
 import net.liftweb.common._
-import main.scala.no.aslakjo.model.AList
+import main.scala.no.aslakjo.model.{AList, SessionList}
 
 class NewList {
 
@@ -17,8 +17,12 @@ class NewList {
 	}
 
   private def createList = {
-    AList.createRecord.name.set("test")
-    
+    val list = AList.createRecord
+    list.name.set("test")
+    list.save
+
+    SessionList(Full(list))
+    redirectTo("/list")
   }
 
 }
