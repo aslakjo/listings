@@ -8,7 +8,7 @@ import net.liftweb.util.Helpers._
 import net.liftweb.http.S._
 import net.liftweb.http.SHtml._
 import net.liftweb.common._
-import main.scala.no.aslakjo.model.List
+import main.scala.no.aslakjo.model.AList
 
 class NewList {
 
@@ -17,7 +17,7 @@ class NewList {
 	}
 
   private def createList = {
-    List.createRecord.name.set("test")
+    AList.createRecord.name.set("test")
     
   }
 
